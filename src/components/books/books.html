@@ -2,7 +2,7 @@
   <ion-grid>
     <ion-row>
       <ion-col *ngFor='let book of bookList'>
-          <ion-card>
+          <ion-card (click)='viewDetails($event, book.id)'>
             <ion-card-header>
                 <h2 class="card-title">{{ book.title }}</h2>
             </ion-card-header>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Book } from './book.model';
 
 /**
@@ -14,9 +14,15 @@ import { Book } from './book.model';
 export class BooksComponent {
 
   @Input() bookList: Book[];
+  @Output()
+  viewDetailsClick: EventEmitter<number>;
 
   constructor() {
-    console.log('Hello BooksComponent Component');
+    this.viewDetailsClick = new EventEmitter<number>();
+  }
+
+  viewDetails = function (event, id) {
+    this.viewDetailsClick.emit(id);
   }
 
 }
